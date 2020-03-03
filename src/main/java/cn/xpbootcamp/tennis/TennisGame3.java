@@ -9,16 +9,17 @@ public class TennisGame3 implements TennisGame {
 
 
     public String getScore() {
-        String s;
         if (p2Score < 4 && p1Score < 4 && !(p2Score + p1Score == 6)) {
-            String[] p = new String[]{"Love", "Fifteen", "Thirty", "Forty"};
-            s = p[p2Score];
-            return (p2Score == p1Score) ? s + "-All" : s + "-" + p[p1Score];
+            Score[] scores = Score.values();
+            String value = scores[p2Score].getValue();
+            return (p2Score == p1Score) ? value + ALL_PREF : value + PREFIX + scores[p1Score].getValue();
         } else {
             if (p2Score == p1Score)
-                return "Deuce";
-            s = p2Score > p1Score ? PLAYER1 : PLAYER2;
-            return ((p2Score - p1Score) * (p2Score - p1Score) == 1) ? "Advantage " + s : "Win for " + s;
+                return Score.DEUCE.getValue();
+            String player = p2Score > p1Score ? PLAYER1 : PLAYER2;
+            return ((p2Score - p1Score) * (p2Score - p1Score) == 1) ? Score.ADVANTAGE.getValue() + SPACE
+                    + player : WIN + player;
+
         }
     }
 
