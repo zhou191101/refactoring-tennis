@@ -3,12 +3,12 @@ package cn.xpbootcamp.tennis;
 import static cn.xpbootcamp.tennis.Constant.*;
 
 public class TennisGame2 implements TennisGame {
-    public int p1Point = 0;
-    public int p2Point = 0;
+    private int p1Point = 0;
+    private int p2Point = 0;
 
 
-    public String p1Res = "";
-    public String p2Res = "";
+    private String p1Res = "";
+    private String p2Res = "";
 
     public String getScore() {
         Score[] scores = Score.values();
@@ -21,18 +21,12 @@ public class TennisGame2 implements TennisGame {
             }
         }
 
-        if (p1Point > 0 )
-            if (p2Point == 0) {
-                p1Res = scores[p1Point].getValue();
-                p2Res = scores[p2Point].getValue();
-                score = p1Res + "-" + p2Res;
-            }
-        if (p2Point > 0)
-            if (p1Point == 0) {
-                p1Res = scores[p1Point].getValue();
-                p2Res = scores[p2Point].getValue();
-                score = p1Res + "-" + p2Res;
-            }
+        if (p1Point > 0 && p2Point == 0 || p2Point > 0 && p1Point == 0) {
+            p1Res = scores[p1Point].getValue();
+            p2Res = scores[p2Point].getValue();
+            score = p1Res + "-" + p2Res;
+
+        }
 
         if (p1Point > p2Point)
             if (p1Point < 4) {
