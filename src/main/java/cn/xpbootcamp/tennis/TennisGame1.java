@@ -1,16 +1,11 @@
 package cn.xpbootcamp.tennis;
 
+import static cn.xpbootcamp.tennis.Constant.*;
+
 public class TennisGame1 implements TennisGame {
 
     private int mScore1 = 0;
     private int mScore2 = 0;
-
-    private static final String PLAYER1 = "player1";
-    private static final String PLAYER2 = "player2";
-    private static final String ALL_PREF = "-All";
-    private static final String WIN = "Win for ";
-    private static final String PREFIX = "-";
-    private static final String SPACE = " ";
 
     public void wonPoint(String playerName) {
         if (playerName.equals(PLAYER1))
