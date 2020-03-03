@@ -23,7 +23,7 @@ public class TennisGame1 implements TennisGame {
             } else {
                 score.append(scores[4].getValue());
             }
-        } else if (p1Score >= 4 || p2Score >= 4) {
+        } else if (isScoreMoreThanFour()) {
             int minusResult = p1Score - p2Score;
             if (minusResult == 1) score.append(Score.ADVANTAGE.getValue()).append(SPACE).append(PLAYER1);
             else if (minusResult == -1) score.append(Score.ADVANTAGE.getValue()).append(SPACE).append(PLAYER2);
@@ -39,5 +39,9 @@ public class TennisGame1 implements TennisGame {
             }
         }
         return score.toString();
+    }
+
+    private boolean isScoreMoreThanFour() {
+        return p1Score >= 4 || p2Score >= 4;
     }
 }
