@@ -7,9 +7,6 @@ public class TennisGame2 implements TennisGame {
     private int mScore2 = 0;
 
 
-    private String p1Res = "";
-    private String p2Res = "";
-
     public String getScore() {
         Score[] scores = Score.values();
         String score = "";
@@ -22,17 +19,17 @@ public class TennisGame2 implements TennisGame {
         }
 
         if (mScore1 > 0 && mScore2 == 0 || mScore2 > 0 && mScore1 == 0) {
-            p1Res = scores[mScore1].getValue();
-            p2Res = scores[mScore2].getValue();
-            score = p1Res + PREFIX + p2Res;
+            String p1Result = scores[mScore1].getValue();
+            String p2Result = scores[mScore2].getValue();
+            score = p1Result + PREFIX + p2Result;
 
         }
 
         if (mScore1 > mScore2 || mScore2 > mScore1) {
             if (mScore1 < 4 || mScore2 < 4) {
-                p1Res = scores[mScore1].getValue();
-                p2Res = scores[mScore2].getValue();
-                score = p1Res + PREFIX + p2Res;
+                String p1Result = scores[mScore1].getValue();
+                String p2Result = scores[mScore2].getValue();
+                score = p1Result + PREFIX + p2Result;
             }
             if (mScore1 > mScore2 && mScore2 >= 3) {
                 score = Score.ADVANTAGE.getValue() + SPACE + PLAYER1;
