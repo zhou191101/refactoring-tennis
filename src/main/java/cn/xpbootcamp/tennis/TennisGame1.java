@@ -16,8 +16,9 @@ public class TennisGame1 implements TennisGame {
 
     public String getScore() {
         StringBuilder score = new StringBuilder();
+        Score[] scores = Score.values();
         if (p1Score == p2Score) {
-            Score[] scores = Score.values();
+
             if (p1Score < 3) {
                 score.append(scores[p1Score].getValue()).append(ALL_PREF);
             } else {
@@ -31,7 +32,6 @@ public class TennisGame1 implements TennisGame {
             else score.append(WIN).append(PLAYER2);
         } else {
             for (int i = 1; i < 3; i++) {
-                Score[] scores = Score.values();
                 if (i == 1) score.append(scores[p1Score].getValue());
                 else {
                     score.append(PREFIX).append(scores[p2Score].getValue());
