@@ -46,14 +46,22 @@ public class TennisGame2 implements TennisGame {
 
 
         if (p1Point >= 4)
-            if ((p1Point - p2Point) >= 2) {
+            if (isP1MoreThanP2Two()) {
                 score = WIN + PLAYER1;
             }
         if (p2Point >= 4)
-            if ((p2Point - p1Point) >= 2) {
+            if (isP2MoreThanP1Two()) {
                 score = WIN + PLAYER2;
             }
         return score;
+    }
+
+    private boolean isP2MoreThanP1Two() {
+        return (p2Point - p1Point) >= 2;
+    }
+
+    private boolean isP1MoreThanP2Two() {
+        return (p1Point - p2Point) >= 2;
     }
 
     private void P1Score() {
