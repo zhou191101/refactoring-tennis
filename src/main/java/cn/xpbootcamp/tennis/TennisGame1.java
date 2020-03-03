@@ -5,11 +5,12 @@ public class TennisGame1 implements TennisGame {
     private int mScore1 = 0;
     private int mScore2 = 0;
 
-    private static final String PLAYER = "player1";
+    private static final String PLAYER1 = "player1";
+    private static final String PLAYER2 = "player2";
     private static final String ALL_PREF = "-All";
 
     public void wonPoint(String playerName) {
-        if (playerName.equals(PLAYER))
+        if (playerName.equals(PLAYER1))
             mScore1 += 1;
         else
             mScore2 += 1;
@@ -27,10 +28,10 @@ public class TennisGame1 implements TennisGame {
             }
         } else if (mScore1 >= 4 || mScore2 >= 4) {
             int minusResult = mScore1 - mScore2;
-            if (minusResult == 1) score = new StringBuilder("Advantage player1");
-            else if (minusResult == -1) score = new StringBuilder("Advantage player2");
-            else if (minusResult >= 2) score = new StringBuilder("Win for player1");
-            else score = new StringBuilder("Win for player2");
+            if (minusResult == 1) score.append(Score.ADVANTAGE.getValue()).append(" ").append(PLAYER1);
+            else if (minusResult == -1) score.append(Score.ADVANTAGE.getValue()).append(" ").append(PLAYER2);
+            else if (minusResult >= 2) score.append("Win for ").append(PLAYER1);
+            else score.append("Win for ").append(PLAYER2);
         } else {
             for (int i = 1; i < 3; i++) {
                 if (i == 1) tempScore = mScore1;
