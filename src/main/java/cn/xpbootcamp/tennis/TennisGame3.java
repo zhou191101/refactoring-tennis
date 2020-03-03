@@ -4,29 +4,29 @@ import static cn.xpbootcamp.tennis.Constant.*;
 
 public class TennisGame3 implements TennisGame {
 
-    private int mScore1;
-    private int mScore2;
+    private int p1Score;
+    private int p2Score;
 
 
     public String getScore() {
         String s;
-        if (mScore2 < 4 && mScore1 < 4 && !(mScore2 + mScore1 == 6)) {
+        if (p2Score < 4 && p1Score < 4 && !(p2Score + p1Score == 6)) {
             String[] p = new String[]{"Love", "Fifteen", "Thirty", "Forty"};
-            s = p[mScore2];
-            return (mScore2 == mScore1) ? s + "-All" : s + "-" + p[mScore1];
+            s = p[p2Score];
+            return (p2Score == p1Score) ? s + "-All" : s + "-" + p[p1Score];
         } else {
-            if (mScore2 == mScore1)
+            if (p2Score == p1Score)
                 return "Deuce";
-            s = mScore2 > mScore1 ? PLAYER1 : PLAYER2;
-            return ((mScore2 - mScore1) * (mScore2 - mScore1) == 1) ? "Advantage " + s : "Win for " + s;
+            s = p2Score > p1Score ? PLAYER1 : PLAYER2;
+            return ((p2Score - p1Score) * (p2Score - p1Score) == 1) ? "Advantage " + s : "Win for " + s;
         }
     }
 
     public void wonPoint(String playerName) {
         if (playerName.equals(PLAYER1))
-            this.mScore2 += 1;
+            this.p2Score += 1;
         else
-            this.mScore1 += 1;
+            this.p1Score += 1;
 
     }
 
