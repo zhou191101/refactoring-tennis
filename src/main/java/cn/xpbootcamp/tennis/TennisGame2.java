@@ -1,4 +1,5 @@
 package cn.xpbootcamp.tennis;
+
 import static cn.xpbootcamp.tennis.Constant.*;
 
 public class TennisGame2 implements TennisGame {
@@ -11,21 +12,16 @@ public class TennisGame2 implements TennisGame {
 
     public String getScore() {
         String score = "";
-        if (p1Point == p2Point)
+        if (p1Point == p2Point) {
+            Score[] scores = Score.values();
             if (p1Point < 4) {
-
-                if (p1Point == 0)
-                    score = "Love";
-                if (p1Point == 1)
-                    score = "Fifteen";
-                if (p1Point == 2)
-                    score = "Thirty";
-                score += "-All";
+                score = scores[p1Point].getValue() + "-All";
             }
-        if (p1Point == p2Point)
             if (p1Point >= 3) {
                 score = "Deuce";
             }
+        }
+
 
         if (p1Point > 0)
             if (p2Point == 0) {
