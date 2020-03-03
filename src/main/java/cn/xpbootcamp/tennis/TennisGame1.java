@@ -40,20 +40,7 @@ public class TennisGame1 implements TennisGame {
                     score.append("-");
                     tempScore = mScore2;
                 }
-                switch (tempScore) {
-                    case 0:
-                        score.append(Score.LOVE.getValue());
-                        break;
-                    case 1:
-                        score.append(Score.FIFTEEN.getValue());
-                        break;
-                    case 2:
-                        score.append(Score.THIRTY.getValue());
-                        break;
-                    case 3:
-                        score.append(Score.FORTY.getValue());
-                        break;
-                }
+                score.append(Score.values()[tempScore].getValue());
             }
         }
         return score.toString();
