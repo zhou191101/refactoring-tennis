@@ -19,7 +19,6 @@ public class TennisGame1 implements TennisGame {
 
     public String getScore() {
         StringBuilder score = new StringBuilder();
-        int tempScore;
         if (mScore1 == mScore2) {
             Score[] scores = Score.values();
             if (mScore1 < 3) {
@@ -35,12 +34,12 @@ public class TennisGame1 implements TennisGame {
             else score.append(WIN).append(PLAYER2);
         } else {
             for (int i = 1; i < 3; i++) {
-                if (i == 1) tempScore = mScore1;
+                Score[] scores = Score.values();
+                if (i == 1) score.append(scores[mScore1].getValue());
                 else {
                     score.append("-");
-                    tempScore = mScore2;
+                    score.append(scores[mScore2].getValue());
                 }
-                score.append(Score.values()[tempScore].getValue());
             }
         }
         return score.toString();
