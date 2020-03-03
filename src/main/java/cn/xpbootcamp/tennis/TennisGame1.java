@@ -4,16 +4,10 @@ public class TennisGame1 implements TennisGame {
 
     private int m_score1 = 0;
     private int m_score2 = 0;
-    private String player1Name;
-    private String player2Name;
-
-    public TennisGame1(String player1Name, String player2Name) {
-        this.player1Name = player1Name;
-        this.player2Name = player2Name;
-    }
+    private static final String PALY1NAME = "player1";
 
     public void wonPoint(String playerName) {
-        if (playerName.equals(player1Name))
+        if (playerName.equals(PALY1NAME))
             m_score1 += 1;
         else
             m_score2 += 1;
