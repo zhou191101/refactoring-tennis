@@ -9,6 +9,8 @@ public class TennisGame1 implements TennisGame {
     private static final String PLAYER2 = "player2";
     private static final String ALL_PREF = "-All";
     private static final String WIN = "Win for ";
+    private static final String PREFIX = "-";
+    private static final String SPACE = " ";
 
     public void wonPoint(String playerName) {
         if (playerName.equals(PLAYER1))
@@ -28,8 +30,8 @@ public class TennisGame1 implements TennisGame {
             }
         } else if (mScore1 >= 4 || mScore2 >= 4) {
             int minusResult = mScore1 - mScore2;
-            if (minusResult == 1) score.append(Score.ADVANTAGE.getValue()).append(" ").append(PLAYER1);
-            else if (minusResult == -1) score.append(Score.ADVANTAGE.getValue()).append(" ").append(PLAYER2);
+            if (minusResult == 1) score.append(Score.ADVANTAGE.getValue()).append(SPACE).append(PLAYER1);
+            else if (minusResult == -1) score.append(Score.ADVANTAGE.getValue()).append(SPACE).append(PLAYER2);
             else if (minusResult >= 2) score.append(WIN).append(PLAYER1);
             else score.append(WIN).append(PLAYER2);
         } else {
@@ -37,8 +39,7 @@ public class TennisGame1 implements TennisGame {
                 Score[] scores = Score.values();
                 if (i == 1) score.append(scores[mScore1].getValue());
                 else {
-                    score.append("-");
-                    score.append(scores[mScore2].getValue());
+                    score.append(PREFIX).append(scores[mScore2].getValue());
                 }
             }
         }
