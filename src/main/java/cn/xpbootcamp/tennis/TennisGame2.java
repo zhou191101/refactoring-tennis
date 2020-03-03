@@ -18,7 +18,7 @@ public class TennisGame2 implements TennisGame {
                 score = scores[p1Point].getValue() + "-All";
             }
             if (p1Point >= 3) {
-                score = "Deuce";
+                score = Score.DEUCE.getValue();
             }
         }
 
