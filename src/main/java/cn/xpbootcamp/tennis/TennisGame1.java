@@ -4,10 +4,10 @@ public class TennisGame1 implements TennisGame {
 
     private int m_score1 = 0;
     private int m_score2 = 0;
-    private static final String PALY1NAME = "player1";
+    private static final String PLAYER = "player1";
 
     public void wonPoint(String playerName) {
-        if (playerName.equals(PALY1NAME))
+        if (playerName.equals(PLAYER))
             m_score1 += 1;
         else
             m_score2 += 1;
