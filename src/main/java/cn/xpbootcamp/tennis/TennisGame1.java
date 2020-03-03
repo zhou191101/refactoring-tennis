@@ -6,6 +6,7 @@ public class TennisGame1 implements TennisGame {
     private int mScore2 = 0;
 
     private static final String PLAYER = "player1";
+    private static final String ALL_PREF = "-All";
 
     public void wonPoint(String playerName) {
         if (playerName.equals(PLAYER))
@@ -18,20 +19,11 @@ public class TennisGame1 implements TennisGame {
         StringBuilder score = new StringBuilder();
         int tempScore;
         if (mScore1 == mScore2) {
-            switch (mScore1) {
-                case 0:
-                    score = new StringBuilder("Love-All");
-                    break;
-                case 1:
-                    score = new StringBuilder("Fifteen-All");
-                    break;
-                case 2:
-                    score = new StringBuilder("Thirty-All");
-                    break;
-                default:
-                    score = new StringBuilder("Deuce");
-                    break;
-
+            Score[] scores = Score.values();
+            if (mScore1 < 3) {
+                score.append(scores[mScore1].getValue()).append(ALL_PREF);
+            } else {
+                score.append(scores[4].getValue());
             }
         } else if (mScore1 >= 4 || mScore2 >= 4) {
             int minusResult = mScore1 - mScore2;
@@ -48,16 +40,16 @@ public class TennisGame1 implements TennisGame {
                 }
                 switch (tempScore) {
                     case 0:
-                        score.append("Love");
+                        score.append(Score.LOVE.getValue());
                         break;
                     case 1:
-                        score.append("Fifteen");
+                        score.append(Score.FIFTEEN.getValue());
                         break;
                     case 2:
-                        score.append("Thirty");
+                        score.append(Score.THIRTY.getValue());
                         break;
                     case 3:
-                        score.append("Forty");
+                        score.append(Score.FORTY.getValue());
                         break;
                 }
             }
